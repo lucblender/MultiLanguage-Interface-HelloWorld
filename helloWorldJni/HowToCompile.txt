@@ -1,0 +1,6 @@
+g++ -c -I"/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/include" -I"/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/include/linux" HelloImpl.cpp
+g++ -I"/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/include" -I"/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/include/linux" -o libhello.so -shared -Wl,-soname,hello.so Hello.c HelloImpl.o -Bstatic -lc
+
+
+javac Hello.java
+java -Djava.library.path=. Hello
